@@ -26,7 +26,7 @@ export default function FacultyCVManagementSystem() {
                 qualification: e.target.qualification.value,
               };
 
-              const response = await fetch("http://localhost:5000/submit-cv", {
+              const response = await fetch("https://faculty-backend-7jcr.onrender.com/submit-cv", {
                 method: "POST",
                 headers: {
                   "Content-Type": "application/json",

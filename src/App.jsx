@@ -20,23 +20,32 @@ export default function FacultyCVManagementSystem() {
             onSubmit={async (e) => {
               e.preventDefault();
 
-              const facultyData = {
-                facultyName: e.target.facultyName.value,
-                department: e.target.department.value,
-                qualification: e.target.qualification.value,
-              };
+              try {
+                const facultyData = {
+                  facultyName: e.target.facultyName.value,
+                  department: e.target.department.value,
+                  qualification: e.target.qualification.value,
+                };
 
-              const response = await fetch("https://faculty-backend-7jcr.onrender.com/submit-cv", {
-                method: "POST",
-                headers: {
-                  "Content-Type": "application/json",
-                },
-                body: JSON.stringify(facultyData),
-              });
+                const response = await fetch(
+                  "https://faculty-backend-7jcr.onrender.com/submit-cv",
+                  {
+                    method: "POST",
+                    headers: {
+                      "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify(facultyData),
+                  }
+                );
 
-              const result = await response.json();
+                const result = await response.json();
 
-              alert(result.message);
+                alert(result.message);
+              } catch (error) {
+                console.error(error);
+
+                alert("Error connecting to backend");
+              }
             }}
           >
             <div>
@@ -177,6 +186,6 @@ export default function FacultyCVManagementSystem() {
       <footer className="text-center text-gray-500 mt-8 text-sm">
         © 2026 Faculty CV Management System
       </footer>
-    </div>
+    </div >
   );
 }

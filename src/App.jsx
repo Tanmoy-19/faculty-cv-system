@@ -28,7 +28,7 @@ export default function FacultyCVManagementSystem() {
                 };
 
                 const response = await fetch(
-                  "https://faculty-backend-7jcr.onrender.com/submit-cv",
+                  "https://faculty-backend.onrender.com/submit-cv",
                   {
                     method: "POST",
                     headers: {
